@@ -1,0 +1,42 @@
+form {
+    padding: 30px;
+    background-color: lightblue;
+    border-radius: 15px; /* Ajout d'arrondis pour un look plus moderne */
+    max-width: 400px; /* Pour limiter la largeur du formulaire */
+    margin: auto; /* Centrer sur la page */
+}
+
+.form-element {
+    display: block;
+    width: 100%; /* Rendre les inputs plus lisibles */
+    padding: 10px;
+    margin: 10px 0; /* Espacement entre les champs */
+    border: 2px solid #9f9797;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: blue; /* Effet lorsqu'on clique sur un input */
+    outline: none;
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 130px;
+    font-weight: bold;
+    font-size: 70px;;
+}
+
+.button {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    max-width: 200px;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
