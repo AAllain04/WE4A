@@ -57,7 +57,7 @@
 
     <!-- Formulaire connexion -->
     <main class="form-signin w-100 m-auto">
-        <form action="../src/moodle.php" method="get" novalidate>
+        <form action="../src/moodle.php" method="get">
             <h1 class="h3 mb-3 fw-normal">Please connect</h1>
 
             <div class="form-floating position-relative">
@@ -100,6 +100,8 @@
             </div>
 
             <div class="form-check text-start my-3">
+
+                <!-- A configurer lors de l'ajout de Symfony -->
                 <input
                         class="form-check-input"
                         type="checkbox"
