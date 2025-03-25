@@ -1,5 +1,33 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
+/* Style du drawer */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0; /* pour un tiroir à gauche */
+    width: 250px;  /* largeur ajustable selon tes besoins */
+    height: 100%;
+    background: #fff;
+    z-index: 1050; /* supérieur à la plupart des éléments */
+    overflow: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Par défaut, le tiroir est caché (déplacé vers la gauche) */
+.drawer.slide {
+    transform: translateX(-100%);
+}
+
+/* Classe pour afficher le tiroir */
+.drawer.show {
+    transform: translateX(0);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 .form-signin {
     max-width: 330px;
     padding: 1rem;
@@ -9,13 +37,18 @@
     background-color: #2077C5;
     list-style-type: none;
     text-align: center;
-    padding: 10px;
-    display: flex;
+    padding: 30px;
+    margin:0;
 }
 
 #nav li {
     display: inline-block;
     margin: 0 20px;
+    width: 30%
+}
+
+.dropdown-menu {
+    z-index: -1;
 }
 
 #nav a {
@@ -62,3 +95,68 @@ hr {
     width: 90%;
     color: #E9EFF3;
 }
+
+.navbar {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: right;
+
+    }
+
+    .navbar-nav {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+
+    }
+
+    .navbar-nav .nav-item {
+        display: block;
+        text-align: right;
+        width: 100%;
+    }
+
+    #nav li {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        text-align: right;
+    }
+}
+
+     /* Pour que le dropdown s'affiche par-dessus tout */
+ .dropdown-menu {
+     z-index: 1050;
+ }
+/* Style du drawer */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0; /* pour un tiroir à gauche */
+    width: 250px;  /* largeur ajustable */
+    height: 100%;
+    background: #fff;
+    z-index: 1100; /* supérieur à la barre de navigation et dropdown */
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+/* Par défaut, le tiroir est caché en le décalant vers la gauche */
+.drawer.slide {
+    transform: translateX(-100%);
+}
+/* Classe pour afficher le tiroir */
+.drawer.show {
+    transform: translateX(0);
+}
+
+.navbar-collapse {
+    flex-wrap: nowrap;
+}
+
