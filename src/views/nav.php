@@ -16,13 +16,13 @@
         <!-- Contenu de la navigation -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto" id="navbar-items">
-                <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="/dashboard">Tableau de bord</a></li>
-                <li class="nav-item"><a class="nav-link" href="/courses">Mes cours</a></li>
-                <li class="nav-item"><a class="nav-link" href="/course-search">Recherche de cours</a></li>
-                <li class="nav-item"><a class="nav-link" href="/utbm-sites">Sites UTBM</a></li>
-                <li class="nav-item"><a class="nav-link" href="/semester">Semestre</a></li>
-                <li class="nav-item"><a class="nav-link" href="/internships">Stages/S.E.E</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Mes cours</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Recherche de cours</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sites UTBM</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Semestre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Stages/S.E.E</a></li>
 
                 <!-- Dropdown "Plus" -->
                 <li class="nav-item dropdown" id="moreDropdown">
@@ -45,13 +45,13 @@
         </div>
         <div class="drawer-body p-3">
             <ul class="list-group">
-                <li class="list-group-item"><a href="/profile">Profile</a></li>
-                <li class="list-group-item"><a href="/dashboard">Tableau de bord</a></li>
-                <li class="list-group-item"><a href="/courses">Mes cours</a></li>
-                <li class="list-group-item"><a href="/course-search">Recherche de cours</a></li>
-                <li class="list-group-item"><a href="/utbm-sites">Sites UTBM</a></li>
-                <li class="list-group-item"><a href="/semester">Semestre</a></li>
-                <li class="list-group-item"><a href="/internships">Stages/S.E.E</a></li>
+                <li class="list-group-item"><a href="#">Profile</a></li>
+                <li class="list-group-item"><a href="#">Tableau de bord</a></li>
+                <li class="list-group-item"><a href="#">Mes cours</a></li>
+                <li class="list-group-item"><a href="#">Recherche de cours</a></li>
+                <li class="list-group-item"><a href="#">Sites UTBM</a></li>
+                <li class="list-group-item"><a href="#">Semestre</a></li>
+                <li class="list-group-item"><a href="#">Stages/S.E.E</a></li>
             </ul>
         </div>
     </div>
