@@ -1,31 +1,107 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!DOCTYPE html>
+<body>
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
     <div id="nav" class="container-fluid">
-        <img src="../../public/assets/logo_blanc.png">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- Logo à gauche -->
+        <a href="/" class="navbar-brand">
+            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png" height="40">
+        </a>
+
+        <!-- Bouton pour ouvrir le drawer -->
+        <button id="drawerToggle" class="btn navbar-toggler d-lg-none" type="button" aria-controls="drawer-1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Tableau de bord</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mes cours</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sites UTBM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Stages / S.E.E.</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                        </svg>
+        <!-- Contenu de la navigation -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto" id="navbar-items">
+                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Mes cours</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Recherche de cours</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sites UTBM</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Semestre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Stages/S.E.E</a></li>
+
+                <!-- Dropdown "Plus" -->
+                <li class="nav-item dropdown" id="moreDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="moreDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Plus
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="moreDropdownLink"></ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<!-- Tiroir (drawer) -->
+<div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-1-title" aria-hidden="true" id="drawer-1">
+    <div class="drawer-content drawer-content-scrollable" role="document">
+        <div class="drawer-header p-3 d-flex justify-content-between align-items-center">
+            <h4 class="drawer-title" id="drawer-1-title">Menu</h4>
+            <button type="button" class="btn-close" id="drawerClose" aria-label="Close"></button>
+        </div>
+        <div class="drawer-body p-3">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Profile</a></li>
+                <li class="list-group-item"><a href="#">Tableau de bord</a></li>
+                <li class="list-group-item"><a href="#">Mes cours</a></li>
+                <li class="list-group-item"><a href="#">Recherche de cours</a></li>
+                <li class="list-group-item"><a href="#">Sites UTBM</a></li>
+                <li class="list-group-item"><a href="#">Semestre</a></li>
+                <li class="list-group-item"><a href="#">Stages/S.E.E</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const drawer = document.getElementById('drawer-1');
+        const toggleBtn = document.getElementById('drawerToggle');
+        const closeBtn = document.getElementById('drawerClose');
+
+        // Toggle drawer
+        function toggleDrawer() {
+            const isOpen = drawer.classList.contains('show');
+            drawer.classList.toggle('show', !isOpen);
+            drawer.setAttribute("aria-hidden", isOpen ? "true" : "false");
+            toggleBtn.setAttribute("aria-expanded", !isOpen);
+        }
+
+        toggleBtn.addEventListener('click', toggleDrawer);
+        closeBtn.addEventListener('click', toggleDrawer);
+
+        // Close drawer when clicking outside
+        drawer.addEventListener('click', function(event) {
+            if (event.target === drawer) {
+                toggleDrawer();
+            }
+        });
+
+        function adjustNavbar() {
+            const navbar = document.getElementById('navbar-items');
+            const moreDropdown = document.getElementById('moreDropdown');
+            const moreMenu = moreDropdown.querySelector('.dropdown-menu');
+
+            // Reset previous adjustments
+            while(moreMenu.children.length > 0) {
+                navbar.insertBefore(moreMenu.children[0], moreDropdown);
+            }
+
+            // Move items to dropdown if they don't fit
+            while(navbar.scrollWidth > navbar.clientWidth && navbar.children.length > 1) {
+                const overflowItem = navbar.children[navbar.children.length - 2];
+                moreMenu.insertBefore(overflowItem, moreMenu.firstChild);
+            }
+
+            // Toggle dropdown visibility
+            moreDropdown.style.display = moreMenu.children.length ? 'block' : 'none';
+        }
+
+        window.addEventListener('resize', adjustNavbar);
+        adjustNavbar();
+    });
+</script>
