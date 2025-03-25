@@ -4,8 +4,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
     <div id="nav" class="container-fluid">
         <!-- Logo à gauche -->
-        <a href="/" class="navbar-brand">
-            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png" height="40">
+        <a id="utbmlogo" href="#" class="navbar-brand align-items-center m-0 mr-4 p-0 d-md-flex" >
+            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png">
         </a>
 
         <!-- Bouton pour ouvrir le drawer -->

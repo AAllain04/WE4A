@@ -37,14 +37,18 @@ body, html {
     background-color: #2077C5;
     list-style-type: none;
     text-align: center;
-    padding: 30px;
     margin:0;
+}
+
+#utbmlogo:hover {
+    background-color: #2077C5 !important;
 }
 
 #nav li {
     display: inline-block;
-    margin: 0 20px;
-    width: 30%
+    margin: 0px;
+    width: auto;
+    height: auto;
 }
 
 .dropdown-menu {
@@ -53,7 +57,6 @@ body, html {
 
 #nav a {
     color: #FFFFFF;
-    padding: 10px;
     text-decoration: none;
 }
 
@@ -63,7 +66,7 @@ body, html {
 }
 
 #nav img {
-    height: 24px;
+    height: 60px;
 }
 
 .page {
@@ -104,7 +107,7 @@ hr {
     width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 801px) {
     .navbar-collapse {
         text-align: right;
 
@@ -125,10 +128,16 @@ hr {
 
     #nav li {
         display: block;
-        margin: 10px 0;
         width: 100%;
         text-align: right;
+
     }
+}
+
+.nav-link {
+    height: 100%; !important;
+    padding: 24px;
+
 }
 
      /* Pour que le dropdown s'affiche par-dessus tout */
