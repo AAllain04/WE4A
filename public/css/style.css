@@ -1,9 +1,6 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-html,
-body {
-    height: 100%;
-}
+
 
 .form-signin {
     max-width: 330px;
@@ -101,4 +98,63 @@ body {
 
 .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
+}
+
+
+#nav {
+    background-color: #2077C5;
+    list-style-type: none;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+
+#nav li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#nav a {
+    color: #FFFFFF;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+#nav img {
+    height: 24px;
+}
+
+.page {
+    background-color: #E9EFF3;
+    padding: 10px 20px 10px 20px;
+}
+
+.contenu {
+    background-color: #FFFFFF;
+    padding: 10px 20px 20px 20px;
+}
+
+.cours {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    box-shadow: 5px 5px 2px #E9EFF3;
+}
+
+.cours img {
+    width: 98%;
+}
+
+.clear {
+    padding: 20px;
+}
+
+hr {
+    width: 90%;
+    color: #E9EFF3;
 }
