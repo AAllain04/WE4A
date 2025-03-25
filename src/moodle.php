@@ -23,17 +23,17 @@
             <div class="clear"></div>
 
             <div class="cours">
-                <img src="back1.png">
+                <img src="../public/assets/back1.png">
                 <a href="moodle.html">Cours 1</a>
                 <p>Descriptionzaevbrrvzqczdseee</p>
             </div>
             <div class="cours">
-                <img src="back2.png">
+                <img src="../public/assets/back2.png">
                 <a href="moodle.html">Cours 2</a>
                 <p>Descriptionezvktklzd,zqm</p>
             </div>
             <div class="cours">
-                <img src="back3.png">
+                <img src="../public/assets/back3.png">
                 <a href="moodle.html">Cours 3</a>
                 <p>Descriptionezvezvrdzqm</p>
             </div>
@@ -41,17 +41,17 @@
             <div class="clear"></div>
 
             <div class="cours">
-                <img src="back2.png">
+                <img src="../public/assets/back2.png">
                 <a href="moodle.html">Cours 4</a>
                 <p>Descriptionzaevbrrvzqczdseee</p>
             </div>
             <div class="cours">
-                <img src="back3.png">
+                <img src="../public/assets/back3.png">
                 <a href="moodle.html">Cours 5</a>
                 <p>Descriptionezvktklzd,zqm</p>
             </div>
             <div class="cours">
-                <img src="back1.png">
+                <img src="../public/assets/back1.png">
                 <a href="moodle.html">Cours 6</a>
                 <p>Descriptionezvezvrdzqm</p>
             </div>
@@ -59,17 +59,17 @@
             <div class="clear"></div>
 
             <div class="cours">
-                <img src="back3.png">
+                <img src="../public/assets/back3.png">
                 <a href="moodle.html">Cours 7</a>
                 <p>Descriptionzaevbrrvzqczdseee</p>
             </div>
             <div class="cours">
-                <img src="back1.png">
+                <img src="../public/assets/back1.png">
                 <a href="moodle.html">Cours 8</a>
                 <p>Descriptionezvktklzd,zqm</p>
             </div>
             <div class="cours">
-                <img src="back2.png">
+                <img src="../public/assets/back2.png">
                 <a href="moodle.html">Cours 9</a>
                 <p>Descriptionezvezvrdzqm</p>
             </div>
