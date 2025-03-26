@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <body>
 <!-- Barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
     <div id="nav" class="container-fluid">
         <!-- Logo à gauche -->
         <a id="utbmlogo" href="#" class="navbar-brand align-items-center m-0 mr-4 p-0 d-md-flex" >
-            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png">
+            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png" lien>
         </a>
 
         <!-- Bouton pour ouvrir le drawer -->
@@ -24,7 +23,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Semestre</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Stages/S.E.E</a></li>
 
-                <!-- Dropdown "Plus" -->
+                <!-- Dropdowlus" -->
                 <li class="nav-item dropdown" id="moreDropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="moreDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Plus
@@ -45,21 +44,22 @@
         </div>
         <div class="drawer-body p-3">
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">Profile</a></li>
-                <li class="list-group-item"><a href="#">Tableau de bord</a></li>
-                <li class="list-group-item"><a href="#">Mes cours</a></li>
-                <li class="list-group-item"><a href="#">Recherche de cours</a></li>
-                <li class="list-group-item"><a href="#">Sites UTBM</a></li>
-                <li class="list-group-item"><a href="#">Semestre</a></li>
-                <li class="list-group-item"><a href="#">Stages/S.E.E</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Profile</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Tableau de bord</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Mes cours</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Recherche de cours</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Sites UTBM</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Semestre</a></li>
+                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Stages/S.E.E</a></li>
             </ul>
         </div>
     </div>
 </div>
-
+<div id="drawer-backdrop" class="modal-backdrop fade"></div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const drawer = document.getElementById('drawer-1');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
         const toggleBtn = document.getElementById('drawerToggle');
         const closeBtn = document.getElementById('drawerClose');
 
@@ -69,12 +69,15 @@
             drawer.classList.toggle('show', !isOpen);
             drawer.setAttribute("aria-hidden", isOpen ? "true" : "false");
             toggleBtn.setAttribute("aria-expanded", !isOpen);
+            drawerBackdrop.classList.toggle('show', !isOpen);
+
         }
 
         toggleBtn.addEventListener('click', toggleDrawer);
         closeBtn.addEventListener('click', toggleDrawer);
 
         // Close drawer when clicking outside
+        drawerBackdrop.addEventListener('click',toggleDrawer)
         drawer.addEventListener('click', function(event) {
             if (event.target === drawer) {
                 toggleDrawer();

@@ -3,7 +3,6 @@
 <?php include('../src/views/nav.php') ?>
 
 
-    <body>
     <div class="page">
         <div class="contenu">
             <h2>Mes cours</h2>
