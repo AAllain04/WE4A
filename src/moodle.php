@@ -1,86 +1,57 @@
 <?php include('../src/views/header.php') ?>
-
 <?php include('../src/views/nav.php') ?>
 
-
-    <div class="page">
-        <div class="contenu">
-            <h2>Mes cours</h2>
-            <h3>Vue d'ensemble des cours</h3>
-
-            <hr>
-
-            <input type="text" placeholder="Rechercher">
-
-            <input list="trier" placeholder="Trier">
-            <datalist id="trier">
-                <option value="Alphabétique">
-                <option value="Plus récent">
-                <option value="Plus ancien">
-            </datalist>
-
-            <div class="clear"></div>
-
-            <div class="cours">
-                <img src="../public/assets/back1.png">
-                <a href="moodle.html">Cours 1</a>
-                <p>Descriptionzaevbrrvzqczdseee</p>
+    <div class="container-fluid py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="mb-3">Mes cours</h2>
+                <h3 class="text-muted mb-3">Vue d'ensemble des cours</h3>
+                <hr>
             </div>
-            <div class="cours">
-                <img src="../public/assets/back2.png">
-                <a href="moodle.html">Cours 2</a>
-                <p>Descriptionezvktklzd,zqm</p>
-            </div>
-            <div class="cours">
-                <img src="../public/assets/back3.png">
-                <a href="moodle.html">Cours 3</a>
-                <p>Descriptionezvezvrdzqm</p>
-            </div>
+        </div>
 
-            <div class="clear"></div>
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <label for="search" aria-hidden="true"></label>
+                    <input id="search" type="text" class="form-control" placeholder="🔍 Rechercher un cours">
+                    <select id="sort" class="form-select" aria-label="Trier les cours">
+                        <option selected>Trier par</option>
+                        <option value="alphabetique">Alphabétique</option>
+                        <option value="recent">Plus récent</option>
+                        <option value="ancien">Plus ancien</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-            <div class="cours">
-                <img src="../public/assets/back2.png">
-                <a href="moodle.html">Cours 4</a>
-                <p>Descriptionzaevbrrvzqczdseee</p>
-            </div>
-            <div class="cours">
-                <img src="../public/assets/back3.png">
-                <a href="moodle.html">Cours 5</a>
-                <p>Descriptionezvktklzd,zqm</p>
-            </div>
-            <div class="cours">
-                <img src="../public/assets/back1.png">
-                <a href="moodle.html">Cours 6</a>
-                <p>Descriptionezvezvrdzqm</p>
-            </div>
+        <div id="courses-container" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            <?php
+            $courses = [
+                ['id' => 1, 'title' => 'Informatique', 'description' => 'Cours de programmation avancée', 'image' => '../public/assets/back1.png'],
+                ['id' => 2, 'title' => 'Mathématiques', 'description' => 'Algèbre linéaire et calcul', 'image' => '../public/assets/back2.png'],
+                ['id' => 3, 'title' => 'Design', 'description' => 'Principes de design graphique', 'image' => '../public/assets/back3.png'],
+                ['id' => 4, 'title' => 'Marketing', 'description' => 'Stratégies de communication', 'image' => '../public/assets/back2.png'],
+                ['id' => 5, 'title' => 'Langues', 'description' => 'Anglais professionnel', 'image' => '../public/assets/back3.png'],
+                ['id' => 6, 'title' => 'Gestion', 'description' => 'Management et leadership', 'image' => '../public/assets/back1.png']
+            ];
 
-            <div class="clear"></div>
+            foreach ($courses as $course): ?>
+                <div class="col" data-course-title="<?= htmlspecialchars($course['title']) ?>">
+                    <div class="card h-100 shadow-sm">
+                        <img src="<?= htmlspecialchars($course['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($course['title']) ?>">
+                        <div class="card-body">
+                            <p class="card-title h5"><?= htmlspecialchars($course['title']) ?></p>
 
-            <div class="cours">
-                <img src="../public/assets/back3.png">
-                <a href="moodle.html">Cours 7</a>
-                <p>Descriptionzaevbrrvzqczdseee</p>
-            </div>
-            <div class="cours">
-                <img src="../public/assets/back1.png">
-                <a href="moodle.html">Cours 8</a>
-                <p>Descriptionezvktklzd,zqm</p>
-            </div>
-            <div class="cours">
-                <img src="../public/assets/back2.png">
-                <a href="moodle.html">Cours 9</a>
-                <p>Descriptionezvezvrdzqm</p>
-            </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <p class="card-text text-muted"><?= htmlspecialchars($course['description']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Supprimer l'attribut style pour revenir aux styles par défaut
-            document.documentElement.removeAttribute("style");
-            document.body.removeAttribute("style");
-        });
-    </script>
-
+    <script src="../public/js/moodle.js" defer async></script>
 <?php include('../src/views/footer.php') ?>

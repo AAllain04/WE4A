@@ -46,7 +46,7 @@ body, html {
 
 #nav li {
     display: inline-block;
-    margin: 0px;
+    margin: 0;
     width: auto;
     height: auto;
 }
@@ -69,34 +69,9 @@ body, html {
     height: 60px;
 }
 
-.page {
-    background-color: #E9EFF3;
-    padding: 10px 20px 10px 20px;
-}
-
-.contenu {
-    background-color: #FFFFFF;
-    padding: 10px 20px 20px 20px;
-}
-
-.cours {
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-    box-shadow: 5px 5px 2px #E9EFF3;
-}
-
-.cours img {
-    width: 98%;
-}
-
-.clear {
-    padding: 20px;
-}
-
 hr {
     width: 90%;
-    color: #E9EFF3;
+    color: gray;
 }
 
 .navbar {
