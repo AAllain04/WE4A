@@ -53,3 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// html et body conf
+document.addEventListener("DOMContentLoaded", function () {
+    // Appliquer le style height:100% à html et body
+    document.documentElement.setAttribute("style", "height: 100%;");
+    document.body.setAttribute("style", "height: 100%;");
+});
