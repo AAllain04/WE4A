@@ -115,10 +115,6 @@ hr {
 
 }
 
-     /* Pour que le dropdown s'affiche par-dessus tout */
- .dropdown-menu {
-     z-index: 1050;
- }
 /* Style du drawer */
 .drawer {
     position: fixed;
