@@ -22,14 +22,6 @@
                 <li class="nav-item"><a class="nav-link" href="#">Sites UTBM</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Semestre</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Stages/S.E.E</a></li>
-
-                <!-- Dropdowlus" -->
-                <li class="nav-item dropdown" id="moreDropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="moreDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Plus
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="moreDropdownLink"></ul>
-                </li>
             </ul>
         </div>
     </div>

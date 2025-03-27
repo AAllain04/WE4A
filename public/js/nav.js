@@ -24,27 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleDrawer();
         }
     });
-
-    function adjustNavbar() {
-        const navbar = document.getElementById('navbar-items');
-        const moreDropdown = document.getElementById('moreDropdown');
-        const moreMenu = moreDropdown.querySelector('.dropdown-menu');
-
-        // Reset previous adjustments
-        while(moreMenu.children.length > 0) {
-            navbar.insertBefore(moreMenu.children[0], moreDropdown);
-        }
-
-        // Move items to dropdown if they don't fit
-        while(navbar.scrollWidth > navbar.clientWidth && navbar.children.length > 1) {
-            const overflowItem = navbar.children[navbar.children.length - 2];
-            moreMenu.insertBefore(overflowItem, moreMenu.firstChild);
-        }
-
-        // Toggle dropdown visibility
-        moreDropdown.style.display = moreMenu.children.length ? 'block' : 'none';
-    }
-
-    window.addEventListener('resize', adjustNavbar);
-    adjustNavbar();
 });
