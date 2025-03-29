@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Catalogue {% endblock %}
+
+{% block body %}
+  <div class="page">
+  <div class="contenu">
+    <h2>Catalogue des utilisateurs et des UE</h2>
+
+    <!-- Onglets pour Utilisateurs et UE -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="users-tab" data-bs-toggle="tab" role="tab" aria-controls="users" aria-selected="true">Utilisateurs</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="ue-tab" data-bs-toggle="tab" role="tab" aria-controls="ue" aria-selected="false">UE</a>
+      </li>
+    </ul>
+    <div class="clear"></div>
+
+    <div class="tab-content" id="myTabContent">
+      <!-- Onglet Utilisateurs -->
+      <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+        <h3>Liste des utilisateurs</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Rôle</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+                <td class="editmodif">
+                  <button class="btn btn-success btn-sm edit-user" data-id="{{ user.id }}">Modifier</button>
+                  <button class="btn btn-danger btn-sm delete-user" data-id="{{ user.id }}">Supprimer</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Onglet UE -->
+      <div class="tab-pane fade" id="ue" role="tabpanel" aria-labelledby="ue-tab">
+        <h3>Liste des Unités d'Enseignement</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom de l'UE</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ue in ues %}
+              <tr>
+                <td>{{ ue.name }}</td>
+                <td>{{ ue.description }}</td>
+                <td class="editmodif">
+                  <button class="btn btn-success btn-sm edit-user" data-id="{{ ue.id }}">Modifier</button>
+                  <button class="btn btn-danger btn-sm delete-ue" data-id="{{ ue.id }}">Supprimer</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmation de suppression -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Êtes-vous sûr de vouloir supprimer cet élément ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" id="confirmDelete">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ parent() }}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('js/admin.js') }}"></script>
+{% endblock %}

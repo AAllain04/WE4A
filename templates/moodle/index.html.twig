@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Moodle {% endblock %}
+
+{% block body %}
+    <div class="container-fluid py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="mb-3">Mes cours</h2>
+                <h3 class="text-muted mb-3">Vue d'ensemble des cours</h3>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <label for="search" aria-hidden="true"></label>
+                    <input id="search" type="text" class="form-control" placeholder="🔍 Rechercher un cours">
+                    <select id="sort" class="form-select" aria-label="Trier les cours">
+                        <option selected>Trier par</option>
+                        <option value="alphabetique">Alphabétique</option>
+                        <option value="recent">Plus récent</option>
+                        <option value="ancien">Plus ancien</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="courses-container" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            {% set courses = [
+                {'id': 1, 'title': 'Informatique', 'description': 'Cours de programmation avancée', 'image': 'images/back1.png'},
+                {'id': 2, 'title': 'Mathématiques', 'description': 'Algèbre linéaire et calcul', 'image': 'images/back2.png'},
+                {'id': 3, 'title': 'Design', 'description': 'Principes de design graphique', 'image': 'images/back3.png'},
+                {'id': 4, 'title': 'Marketing', 'description': 'Stratégies de communication', 'image': 'images/back2.png'},
+                {'id': 5, 'title': 'Langues', 'description': 'Anglais professionnel', 'image': 'images/back3.png'},
+                {'id': 6, 'title': 'Gestion', 'description': 'Management et leadership', 'image': 'images/back1.png'}
+            ] %}
+
+            {% for course in courses %}
+                <div class="col" data-course-title="{{ course.title }}">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ asset(course.image) }}" class="card-img-top" alt="{{ course.title }}">
+                        <div class="card-body">
+                            <p class="card-title h5">{{ course.title }}</p>
+                            <p class="card-text text-muted">{{ course.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}  <!-- Pour garder le script de Bootstrap -->
+    <script src="{{ asset('js/moodle.js') }}" defer async></script>
+{% endblock %}
