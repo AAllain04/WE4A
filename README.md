@@ -18,4 +18,3 @@ Chaque sous dossier pour une page, j'ai peut-etre pas tout compris là
 
 j'ai pas pu importer plusieurs dossiers:  
 migrations/ et translations/ sont masqués  
-var/ et vendor/ ont trop de fichiers
