@@ -1,6 +1,8 @@
 <?php include('../src/views/header.php') ?>
 <?php include('../src/views/nav.php') ?>
 
+<div class="page">
+<div class="contenu">
     <div class="container-fluid py-4">
         <div class="row mb-4">
             <div class="col-12">
@@ -26,7 +28,7 @@
         </div>
 
         <div id="courses-container" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-            <?php
+        <?php
             $courses = [
                 ['id' => 1, 'title' => 'Informatique', 'description' => 'Cours de programmation avancée', 'image' => '../public/assets/back1.png'],
                 ['id' => 2, 'title' => 'Mathématiques', 'description' => 'Algèbre linéaire et calcul', 'image' => '../public/assets/back2.png'],
@@ -52,6 +54,8 @@
             <?php endforeach; ?>
         </div>
     </div>
+</div>   
+</div> 
 
     <script src="../public/js/moodle.js" defer async></script>
 <?php include('../src/views/footer.php') ?>

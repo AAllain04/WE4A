@@ -1,11 +1,11 @@
-<body>
-<!-- Barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
     <div id="nav" class="container-fluid">
         <!-- Logo à gauche -->
-        <a id="utbmlogo" href="#" class="navbar-brand align-items-center m-0 mr-4 p-0 d-md-flex" >
-            <img alt="UTBM Logo" src="../../public/assets/logo_blanc.png" lien>
+        <a id="utbmlogo" class="navbar-brand align-items-center m-0 mr-4 p-0 d-md-flex">
+            <img alt="UTBM Logo" src="../public/assets/logo_blanc.png">
         </a>
+
+        <div class="clear"></div>
 
         <!-- Bouton pour ouvrir le drawer -->
         <button id="drawerToggle" class="btn navbar-toggler d-lg-none" type="button" aria-controls="drawer-1" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,13 +15,33 @@
         <!-- Contenu de la navigation -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto" id="navbar-items">
-                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Mes cours</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Recherche de cours</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sites UTBM</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Semestre</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Stages/S.E.E</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../moodle.php" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mon Compte
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="accountDropdown">
+                        <form id="accountForm">
+                            <div class="mb-2">
+                                <label class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="userLastName" value="">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Prénom</label>
+                                <input type="text" class="form-control" id="userFirstName" value="">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Nouveau mot de passe</label>
+                                <input type="password" class="form-control" id="userPassword">
+                            </div>
+                            <button type="button" class="btn btn-primary w-100" id="saveAccount">Sauvegarder</button>
+                        </form>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="moodle.php">Tableau de bord</a></li>
+                <li class="nav-item"><a class="nav-link" href="moodle.php">Mes cours</a></li>
+                <li class="nav-item"><a class="nav-link" href="moodle.php">Sites UTBM</a></li>
+                <li class="nav-item"><a class="nav-link" href="moodle.php">Stages/S.E.E</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin.php">Admin</a></li>
             </ul>
         </div>
     </div>
@@ -36,17 +56,16 @@
         </div>
         <div class="drawer-body p-3">
             <ul class="list-group">
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Profile</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Tableau de bord</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Mes cours</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Recherche de cours</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Sites UTBM</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Semestre</a></li>
-                <li class="list-group-item "><a class="text-decoration-none text-body-secondary" href="#">Stages/S.E.E</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Profile</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Tableau de bord</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Mes cours</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Sites UTBM</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Stages/S.E.E</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('admin') }}">Admin</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div id="drawer-backdrop" class="modal-backdrop fade"></div>
-<script src="../../public/js/nav.js" defer async></script>
 
+<script src="../../public/js/nav.js" defer async></script>
