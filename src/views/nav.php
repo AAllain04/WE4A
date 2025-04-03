@@ -56,16 +56,15 @@
         </div>
         <div class="drawer-body p-3">
             <ul class="list-group">
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Profile</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Tableau de bord</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Mes cours</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Sites UTBM</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('moodle') }}">Stages/S.E.E</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="{{ path('admin') }}">Admin</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Tableau de bord</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Mes cours</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Sites UTBM</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Stages/S.E.E</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Admin</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div id="drawer-backdrop" class="modal-backdrop fade"></div>
 
-<script src="../../public/js/nav.js" defer async></script>
+<script src="/WE4A/public/js/nav.js" defer></script>

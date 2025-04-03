@@ -85,5 +85,5 @@
 </div>
 
 
-    <script src="../public/js/moodle.js" defer async></script>
+    <script src="../public/js/moodle.js" defer></script>
 <?php include('../src/views/footer.php') ?>
