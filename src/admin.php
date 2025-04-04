@@ -13,12 +13,12 @@
   ];
             
   $ues = [
-    ['id' => 1, 'name' => 'Mathematiques', 'description' => 'Introduction aux mathématiques'],
-    ['id' => 2, 'name' => 'Physique', 'description' => 'Cours de physique générale'],
-    ['id' => 3, 'name' => 'Informatique', 'description' => 'Apprendre les bases de la programmation'],
-    ['id' => 4, 'name' => 'Mathematiques', 'description' => 'Introduction aux mathématiques'],
-    ['id' => 5, 'name' => 'Physique', 'description' => 'Cours de physique générale'],
-    ['id' => 6, 'name' => 'Informatique', 'description' => 'Apprendre les bases de la programmation'],
+    ['id' => 1, 'code' => 'MT3E', 'description' => 'Mathématiques avancés', 'image' => 'www'],
+    ['id' => 2, 'code' => 'PS2', 'description' => 'Physique générale', 'image' => 'www'],
+    ['id' => 3, 'code' => 'WE4A', 'description' => 'Programmation web', 'image' => 'www'],
+    ['id' => 4, 'code' => 'IT4A', 'description' => 'Théorie des graphes', 'image' => 'www'],
+    ['id' => 5, 'code' => 'LC00', 'description' => 'Chinois débutant', 'image' => 'www'],
+    ['id' => 6, 'code' => 'PC40', 'description' => 'Parallel computing', 'image' => 'www'],
   ];?>
 
 
@@ -57,13 +57,58 @@
                 <td><?= htmlspecialchars($user['email']) ?></td>
                 <td><?= htmlspecialchars($user['role']) ?></td>
                 <td class="editmodif">
-                  <button class="btn btn-success btn-sm edit-user btn-custom" data-id="<?= $user['id'] ?>">Modifier</button>
-                  <button class="btn btn-danger btn-sm delete-user btn-custom" data-id="<?= $user['id'] ?>">Supprimer</button>
+                  <button class="btn btn-success btn-sm edit-user btn-custom" data-id="<?= $user['id'] ?>">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm delete-user btn-custom" data-id="<?= $user['id'] ?>">
+                    <i class="bi bi-trash"></i>
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
+        <button class="btn btn-success mt-3" id="adduser">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </div>
+
+      <!-- Formulaire modal user -->
+      <div id="userModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 id="modalTitle">Modifier un utilisateur</h2>
+          <form id="userForm">
+            <input type="hidden" id="userId" name="id" value="">
+            
+            <div class="form-group">
+              <label for="name">Nom:</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="role">Rôle:</label>
+              <select id="role" name="role" class="form-control" required>
+                <option value="user">Utilisateur</option>
+                <option value="admin">Administrateur</option>
+                <option value="editor">Éditeur</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Mot de passe:</label>
+              <input type="password" id="password" name="password" class="form-control">
+              <small id="passwordHelp" class="form-text text-muted">Laissez vide pour ne pas modifier</small>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </form>
+        </div>
       </div>
 
       <!-- Onglet UE -->
@@ -72,7 +117,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Nom de l'UE</th>
+              <th>Code de l'UE</th>
               <th>Description</th>
               <th>Actions</th>
             </tr>
@@ -80,17 +125,48 @@
           <tbody>
             <?php foreach ($ues as $ue): ?>
               <tr>
-                <td><?= htmlspecialchars($ue['name']) ?></td>
+                <td><?= htmlspecialchars($ue['code']) ?></td>
                 <td><?= htmlspecialchars($ue['description']) ?></td>
                 <td class="editmodif">
-                  <button class="btn btn-success btn-sm edit-ue btn-custom" data-id="<?= $ue['id'] ?>">Modifier</button>
-                  <button class="btn btn-danger btn-sm delete-ue btn-custom" data-id="<?= $ue['id'] ?>">Supprimer</button>
+                  <button class="btn btn-success btn-sm edit-ue btn-custom" data-id="<?= $ue['id'] ?>">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm delete-ue btn-custom" data-id="<?= $ue['id'] ?>">
+                    <i class="bi bi-trash"></i>
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
+        <button class="btn btn-success mt-3" id="addue">
+          <i class="bi bi-plus-lg"></i>
+        </button>
       </div>
+
+      <!-- Formulaire modal pour ue -->
+      <div id="ueModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 id="modalUeTitle">Modifier une UE</h2>
+          <form id="ueForm">
+            <input type="hidden" id="ueId" name="id" value="">
+            
+            <div class="form-group">
+              <label for="ueCode">Code UE:</label>
+              <input type="text" id="ueCode" name="code" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="ueDescription">Description:</label>
+              <textarea id="ueDescription" name="description" class="form-control" rows="3" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -115,6 +191,8 @@
 </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../public/js/admin.js" defer async></script>
+  <script src="../public/js/admin.js" defer></script>
+  <script src="../public/js/user.js"></script>
+  <script src="../public/js/ue.js"></script>
 
   <?php include('../src/views/footer.php') ?>
