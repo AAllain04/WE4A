@@ -190,9 +190,6 @@ form img {
   margin: 0 auto;
 }
 
-
-
-
 input[type="text"], input[type="password"] {
   width: 100%;
   padding: 10px 0px;
@@ -282,14 +279,11 @@ footer {
 /* Mise en page avec Flexbox pour la disposition des colonnes */
 .d-flex {
   display: flex;
+  flex-wrap: nowrap;
   gap: 20px;
   margin-top: 20px;
 }
 
-/* Style du contenu principal */
-main {
-  flex-grow: 1;  /* Permet au contenu principal de prendre toute la place restante */
-}
 
 /* Style de l'aside (bloc-notes sur la droite) */
 aside {
@@ -299,9 +293,10 @@ aside {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   border-left: 6px solid #ffcc00; /* Bordure gauche pour un effet "carnet" */
   font-family: 'Arial', sans-serif;
-  max-height: 80vh;
+  max-height: 50vh;
   overflow-y: auto;
 }
+
 
 /* Effet feuille avec lignes pour les posts */
 aside .post {
@@ -373,4 +368,20 @@ aside .post {
 
 .form-group {
   margin-bottom: 1rem;
+}
+
+.ue-checkboxes {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.form-check {
+  margin-bottom: 8px;
+}
+
+.form-check-input {
+  margin-right: 8px;
 }

@@ -26,6 +26,7 @@ document.querySelectorAll('.edit-ue').forEach(button => {
     document.getElementById('ueId').value = ueId;
     document.getElementById('ueCode').value = row.cells[0].textContent;
     document.getElementById('ueDescription').value = row.cells[1].textContent;
+    document.getElementById('ueImage').value = row.cells[2].textContent;
     
     ueModal.style.display = "block";
   });
