@@ -22,22 +22,28 @@ document.getElementById('adduser').addEventListener('click', function() {
   modal.style.display = "block";
 });
 
-// Boutons "Modifier"
+// Bouton modifier
 document.querySelectorAll('.edit-user').forEach(button => {
   button.addEventListener('click', function() {
     const userId = this.getAttribute('data-id');
     const row = this.closest('tr');
     
-    // Remplir le formulaire
+    // Remplissage basique du formulaire
     document.getElementById('modalTitle').textContent = 'Modifier l\'utilisateur';
     document.getElementById('userId').value = userId;
-    document.getElementById('name').value = row.cells[0].textContent;
-    document.getElementById('email').value = row.cells[1].textContent;
-    document.getElementById('role').value = row.cells[2].textContent.toLowerCase();
+    document.getElementById('nom').value = row.cells[0].textContent;
+    document.getElementById('prenom').value = row.cells[1].textContent; // Adaptez l'index si nécessaire
+    document.getElementById('email').value = row.cells[2].textContent;
+    
+    // Gestion du mot de passe
     document.getElementById('password').required = false;
     document.getElementById('passwordHelp').style.display = 'block';
     
+    // Ouvrir le modal (méthode garantie)
+    const modal = document.getElementById('userModal');
     modal.style.display = "block";
+    modal.style.visibility = "visible";
+    modal.style.opacity = 1;
   });
 });
 
@@ -45,18 +51,30 @@ document.querySelectorAll('.edit-user').forEach(button => {
 document.getElementById('userForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
-  const formData = new FormData(this);
-  const userId = formData.get('id');
-  const isNewUser = userId === '';
-  const data = Object.fromEntries(formData.entries());
+  // Récupérer les UE sélectionnées
+  const selectedUes = [];
+  document.querySelectorAll('input[nom="ues[]"]:checked').forEach(checkbox => {
+    selectedUes.push(parseInt(checkbox.value));
+  });
+
+  // Préparer les données
+  const formData = {
+    id: document.getElementById('userId').value,
+    nom: document.getElementById('nom').value,
+    prenom: document.getElementById('prenom').value,
+    email: document.getElementById('email').value,
+    role: document.getElementById('role').value,
+    password: document.getElementById('password').value,
+    ues: selectedUes // Ajout des UE sélectionnées
+  };
   
   try {
     const response = await fetch('../../src/users.php', {
-      method: isNewUser ? 'POST' : 'PUT',
+      method: formData.id ? 'POST' : 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(formData)
     });
     
     const result = await response.json();

@@ -4,21 +4,21 @@
 <?php 
 
   $users = [
-    ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com', 'role' => 'Etudiant'],
-    ['id' => 2, 'name' => 'Jane Smith', 'email' => 'jane@example.com', 'role' => 'Professeur'],
-    ['id' => 3, 'name' => 'Albert Newton', 'email' => 'albert@example.com', 'role' => 'Administrateur'],
-    ['id' => 4, 'name' => 'John Doe', 'email' => 'john@example.com', 'role' => 'Etudiant'],
-    ['id' => 5, 'name' => 'Jane Smith', 'email' => 'jane@example.com', 'role' => 'Professeur'],
-    ['id' => 6, 'name' => 'Albert Newton', 'email' => 'albert@example.com', 'role' => 'Administrateur'],
+    ['id' => 1, 'nom' => 'Doe', 'prenom' => 'John' ,'email' => 'john@example.com', 'role' => 'Etudiant', 'ues' => [1,2,3]],
+    ['id' => 2, 'nom' => 'Smith', 'prenom' => 'Jane', 'email' => 'jane@example.com', 'role' => 'Professeur', 'ues' => [3,5]],
+    ['id' => 3, 'nom' => 'Newton', 'prenom' => 'Albert' , 'email' => 'albert@example.com', 'role' => 'Administrateur', 'ues' => [5,6]],
+    ['id' => 4, 'nom' => 'Doe', 'prenom' => 'Jone', 'email' => 'john@example.com', 'role' => 'Etudiant', 'ues' => [1, 4,6]],
+    ['id' => 5, 'nom' => 'Smith', 'prenom' => 'Jane', 'email' => 'jane@example.com', 'role' => 'Professeur', 'ues' => [2, 3,5]],
+    ['id' => 6, 'nom' => 'Newton', 'prenom' => 'Albert', 'email' => 'albert@example.com', 'role' => 'Administrateur', 'ues' => [2, 5]],
   ];
             
   $ues = [
-    ['id' => 1, 'code' => 'MT3E', 'description' => 'Mathématiques avancés', 'image' => 'www'],
-    ['id' => 2, 'code' => 'PS2', 'description' => 'Physique générale', 'image' => 'www'],
-    ['id' => 3, 'code' => 'WE4A', 'description' => 'Programmation web', 'image' => 'www'],
-    ['id' => 4, 'code' => 'IT4A', 'description' => 'Théorie des graphes', 'image' => 'www'],
-    ['id' => 5, 'code' => 'LC00', 'description' => 'Chinois débutant', 'image' => 'www'],
-    ['id' => 6, 'code' => 'PC40', 'description' => 'Parallel computing', 'image' => 'www'],
+    ['id' => 1, 'code' => 'MT3E', 'description' => 'Mathématiques avancés', 'image' => 'png'],
+    ['id' => 2, 'code' => 'PS2', 'description' => 'Physique générale', 'image' => 'png'],
+    ['id' => 3, 'code' => 'WE4A', 'description' => 'Programmation web', 'image' => 'png'],
+    ['id' => 4, 'code' => 'IT4A', 'description' => 'Théorie des graphes', 'image' => 'png'],
+    ['id' => 5, 'code' => 'LC00', 'description' => 'Chinois débutant', 'image' => 'png'],
+    ['id' => 6, 'code' => 'PC40', 'description' => 'Parallel computing', 'image' => 'png'],
   ];?>
 
 
@@ -45,17 +45,17 @@
           <thead>
             <tr>
               <th>Nom</th>
+              <th>Prenom</th>
               <th>Email</th>
-              <th>Rôle</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($users as $user): ?>
               <tr>
-                <td><?= htmlspecialchars($user['name']) ?></td>
+                <td><?= htmlspecialchars($user['nom']) ?></td>
+                <td><?= htmlspecialchars($user['prenom']) ?></td>
                 <td><?= htmlspecialchars($user['email']) ?></td>
-                <td><?= htmlspecialchars($user['role']) ?></td>
                 <td class="editmodif">
                   <button class="btn btn-success btn-sm edit-user btn-custom" data-id="<?= $user['id'] ?>">
                     <i class="bi bi-pencil"></i>
@@ -82,8 +82,13 @@
             <input type="hidden" id="userId" name="id" value="">
             
             <div class="form-group">
-              <label for="name">Nom:</label>
-              <input type="text" id="name" name="name" class="form-control" required>
+              <label for="nom">Nom:</label>
+              <input type="text" id="nom" name="nom" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="prenom">Prénom:</label>
+              <input type="text" id="prenom" name="prenom" class="form-control" required>
             </div>
             
             <div class="form-group">
@@ -94,9 +99,10 @@
             <div class="form-group">
               <label for="role">Rôle:</label>
               <select id="role" name="role" class="form-control" required>
-                <option value="user">Utilisateur</option>
+                <option value="etudiant">Etudiant</option>
+                <option value="prof">Professeur</option>
+                <option value="profadmin">Professeur & Administrateur</option>
                 <option value="admin">Administrateur</option>
-                <option value="editor">Éditeur</option>
               </select>
             </div>
             
@@ -105,6 +111,20 @@
               <input type="password" id="password" name="password" class="form-control">
               <small id="passwordHelp" class="form-text text-muted">Laissez vide pour ne pas modifier</small>
             </div>
+
+            <div class="form-group">
+            <label>Unités d'Enseignement :</label>
+            <div class="ue-checkboxes">
+              <?php foreach ($ues as $ue): ?>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="ues[]" id="ue-<?= $ue['id'] ?>" value="<?= $ue['id'] ?>">
+                  <label class="form-check-label" for="ue-<?= $ue['id'] ?>">
+                    <?= htmlspecialchars($ue['code']) ?> - <?= htmlspecialchars($ue['description']) ?>
+                  </label>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
             
             <button type="submit" class="btn btn-primary">Enregistrer</button>
           </form>
@@ -119,6 +139,7 @@
             <tr>
               <th>Code de l'UE</th>
               <th>Description</th>
+              <th>Image</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -127,6 +148,7 @@
               <tr>
                 <td><?= htmlspecialchars($ue['code']) ?></td>
                 <td><?= htmlspecialchars($ue['description']) ?></td>
+                <td><?= htmlspecialchars($ue['image']) ?></td>
                 <td class="editmodif">
                   <button class="btn btn-success btn-sm edit-ue btn-custom" data-id="<?= $ue['id'] ?>">
                     <i class="bi bi-pencil"></i>
@@ -160,6 +182,11 @@
             <div class="form-group">
               <label for="ueDescription">Description:</label>
               <textarea id="ueDescription" name="description" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="ueImage">Image:</label>
+              <input type="text" id="ueImage" name="image" class="form-control" required>
             </div>
             
             <button type="submit" class="btn btn-primary">Enregistrer</button>
