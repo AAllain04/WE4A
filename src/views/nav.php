@@ -67,4 +67,4 @@
 </div>
 <div id="drawer-backdrop" class="modal-backdrop fade"></div>
 
-<script src="/WE4A/public/js/nav.js" defer></script>
+<script src="../public/js/nav.js" defer></script>
