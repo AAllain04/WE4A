@@ -259,7 +259,22 @@ hr {
 }
 
 footer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em; /* hauteur du footer en em */
+}
+
+footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2em; /* espace entre texte et image */
+  font-size: 1em;
+}
+
+footer img {
+  height: 2.5em; /* taille de l'image proportionnelle au texte */
 }
 
 .toggle-password {

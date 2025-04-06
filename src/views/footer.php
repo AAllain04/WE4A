@@ -2,8 +2,11 @@
         <div class="page">
 
         <!-- FOOTER -->
-        <footer>
-        <p>&copy; 2025 - Mon site Moodle</p>
+        <footer>  
+                <p>&copy; 2025 - Mon site Moodle
+                <img rel="icon" src="../public/assets/logo_moodle.png" alt="Logo Moodle">
+                </p>
+                
         </footer>
 
         </div>
