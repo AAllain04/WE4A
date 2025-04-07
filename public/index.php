@@ -1,3 +1,29 @@
+<?php
+session_start(); // Démarre la session
+
+$error = ''; // Variable pour stocker les messages d'erreur
+
+// Vérifier si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Vérification des identifiants
+    if ($email === 'professor@example.com' && $password === 'password123') {
+        $_SESSION['userRole'] = 'professor'; // Définit le rôle en tant que professeur
+        header('Location: ../src/moodle.php'); // Redirection vers moodle.php
+        exit(); // Arrête le script après la redirection
+    } elseif ($email === 'student@example.com' && $password === 'password123') {
+        $_SESSION['userRole'] = 'student'; // Définit le rôle en tant qu'étudiant
+        header('Location: ../src/moodle.php'); // Redirection vers moodle.php
+        exit(); // Arrête le script après la redirection
+    } else {
+        $error = 'Email ou mot de passe incorrect.'; // Message d'erreur si l'authentification échoue
+    }
+}
+?>
+<!-- MNL -->
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -11,24 +37,34 @@
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="form-signin w-100 mx-auto" style="max-width: 400px;">
-            <form action="../src/moodle.php" method="get">
+            <!-- MNL= get=post -->
+            <form action="index.php" method="post">
 
                 <img alt="UTBM Logo" src="assets/logo.png">
                 <div class="clear"></div>
                 <h1 class="h3 mb-3 fw-normal text-center">Bienvenu sur le site de l'UTBM</h1>
                 <div class="clear"></div>
 
+                <!-- MNL -->
+                <!-- Afficher un message d'erreur si nécessaire -->
+                <?php if (!empty($error)): ?>
+                    <div class="alert alert-danger text-center"><?= htmlspecialchars($error) ?></div>
+                <?php endif; ?>
+
                 <div class="form-floating position-relative">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                    <!-- <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required> -->
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                     <label for="floatingInput">Email address</label>
                 </div>
 
                 <div class="form-floating position-relative mt-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required minlength="5">
+                    <!-- <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required minlength="5"> -->
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required minlength="5">
                     <label for="floatingPassword">Password</label>
 
                     <!-- Toggle password visibility -->
-                    <button type="button" class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2 border-0"
+                     <!-- type="boutton" -->
+                    <button type="submit" class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2 border-0"
                             aria-label="Toggle password visibility"
                             onclick="
                                 const passwordInput = document.getElementById('floatingPassword');
@@ -54,3 +90,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" async defer></script>
 </body>
 </html>
+
