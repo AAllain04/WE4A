@@ -2,6 +2,8 @@
 
 Ce projet est une interface web permettant la gestion des Unités d'Enseignement (UE) pour les étudiants, les professeurs et les administrateurs. Pour le moment, les pages ont été implémentées en HTML, CSS et JavaScript.
 
+# ‼️ Avant toute chose créer une base de donnée nommée moodle_database et y importer le fichier moodle_database.sql
+
 ## 🌐 Pages implémentées
 
 - **Page de Login** (`index.php`)  
