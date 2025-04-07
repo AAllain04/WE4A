@@ -60,7 +60,7 @@
                 <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Mes cours</a></li>
                 <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Sites UTBM</a></li>
                 <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Stages/S.E.E</a></li>
-                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="moodle.php">Admin</a></li>
+                <li class="list-group-item"><a class="text-decoration-none text-body-secondary" href="admin.php">Admin</a></li>
             </ul>
         </div>
     </div>
