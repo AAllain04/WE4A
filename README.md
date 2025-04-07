@@ -1,6 +1,6 @@
 # 📚 Projet Moodle - WE4A
 
-Ce projet est une interface web permettant la gestion des Unités d'Enseignement (UE) pour les étudiants et les professeurs. Pour le moment, les pages ont été implémentées en HTML, CSS et JavaScript.
+Ce projet est une interface web permettant la gestion des Unités d'Enseignement (UE) pour les étudiants, les professeurs et les administrateurs. Pour le moment, les pages ont été implémentées en HTML, CSS et JavaScript.
 
 ## 🌐 Pages implémentées
 
