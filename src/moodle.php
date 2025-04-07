@@ -58,9 +58,9 @@ include('../src/views/nav.php');
                                     ];
                                     // MNL
                                     foreach ($courses as $course): ?>
-                                        <div class="col">
+                                        <div class="col" data-course-title="<?= htmlspecialchars($course['title']) ?>">
                                             <a href="<?= $userRole === 'professor' ? 'content_ue_prof.php?title='.urlencode($course['title']) : 'content_ue_stud.php?title='.urlencode($course['title']) ?>" class="text-decoration-none">
-                                            <div class="card h-100 shadow-sm">
+                                                <div class="card h-100 shadow-sm">
                                                     <img src="<?= htmlspecialchars($course['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($course['title']) ?>">
                                                     <div class="card-body">
                                                         <p class="card-title h5"><?= htmlspecialchars($course['title']) ?></p>
