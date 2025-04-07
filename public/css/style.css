@@ -400,3 +400,108 @@ aside .post {
 .form-check-input {
   margin-right: 8px;
 }
+
+/* MNL */
+/* Style pour les pages content_ue  */
+.main-inner-wrapper {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Style pour l'en-tête du cours */
+.page-header-headings h1 {
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style pour la section des publications */
+.course-section-header {
+  background-color: #e9ecef;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.sectionname {
+  color: #495057;
+  font-size: 1.2rem;
+}
+
+/* Style pour les activités (messages et fichiers) */
+.activity-item {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 4px solid transparent;
+}
+
+/* Style spécifique pour les messages */
+.activity .modtype_forum .activity-item {
+  border-left-color: #3498db;
+}
+
+.activity .modtype_forum .activity-icon {
+  background-color: #e3f2fd;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+/* Style spécifique pour les fichiers partagés */
+.activity .modtype_resource .activity-item {
+  border-left-color: #2ecc71;
+}
+
+.activity .modtype_resource .activity-icon {
+  background-color: #e8f5e9;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+/* Style pour le contenu des activités */
+.activityname {
+  color: #2c3e50;
+}
+
+.activityname p {
+  color: #7f8c8d;
+  margin-top: 8px;
+}
+
+/* Style pour les liens de téléchargement */
+.activityname a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.activityname a:hover {
+  text-decoration: underline;
+}
+
+/* Style pour les dates */
+.activity-date {
+  font-size: 0.8rem;
+  color: #95a5a6;
+  margin-top: 5px;
+}
+
+/* Style pour les icônes */
+.activityicon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .activity-item {
+      padding: 10px;
+  }
+  
+  .sectionname {
+      font-size: 1rem;
+  }
+}
